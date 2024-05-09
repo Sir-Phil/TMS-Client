@@ -1,0 +1,93 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ui-primary: mat.define-palette(mat.$indigo-palette);
+$ui-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ui-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ui-theme: mat.define-light-theme((
+  color: (
+    primary: $ui-primary,
+    accent: $ui-accent,
+    warn: $ui-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($ui-theme);
+
+/*
+ * Copyright (C) 2023 TASKY - All Rights Reserved
+ *
+ * Authors:
+ * Rickson Muchedzi - https://muchedzi.com
+ *
+ * Shared Tasky platform dark and light themes.
+ */
+
+.task-common-theme-colors {
+    --brand-dark-color: #0e1015;
+    --brand-white-color: #ffffff;
+    --brand-primary-color: #2f80ed;
+    --brand-secondary-color: #2c3d8f;
+    --success-special-color: #e1f396;
+    --brand-dark-green-color: #01575c;
+    --container-tag-background-color: #ed4c67;
+}
+
+.task-light-theme {
+    --text-primary-color: #0e1015;
+    --text-secondary-color: #636d7e;
+    --border-primary-color: #e6e9ef;
+    --border-secondary-color: #f3f3f4;
+    --background-primary-color: #ffffff;
+    --background-secondary-color: #f5f7fe;
+    --background-highlight-color: #f4f5f8;
+    --background-brand-highlight-color: #eff6ff;
+    --success-primary-color: #52b043;
+    --success-secondary-color: #a6f4c5;
+    --success-highlight-color: #f5fcf9;
+    --error-primary-color: #dc3545;
+    --error-highlight-color: #fff6f4;
+    --priority-primary-color: #ffc960;
+    --error-highlight-color: #fff9ec;
+    --lazy-loader-color: rgba(255, 255, 255, 0.6);
+    @extend .task-common-theme-colors;
+}
+
+.task-dark-theme {
+    --text-primary-color: #ffffff;
+    --text-secondary-color: #b3becc;
+    --border-primary-color: #21232c;
+    --border-secondary-color: #242630;
+    --background-primary-color: #15171f;
+    --background-secondary-color: #1a1d27;
+    --background-highlight-color: #2c2e38;
+    --background-brand-highlight-color: #2d3041;
+    --success-primary-color: #52b043;
+    --success-secondary-color: #a6f4c5;
+    --success-highlight-color: #f5fcf9;
+    --error-primary-color: #dc3545;
+    --error-highlight-color: #fff6f4;
+    --priority-primary-color: #ffc960;
+    --error-highlight-color: #fff9ec;
+    --lazy-loader-color: rgba(21, 23, 31, 0.6);
+    @extend .task-common-theme-colors;
+}

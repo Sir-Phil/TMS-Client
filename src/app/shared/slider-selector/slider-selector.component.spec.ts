@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppComponent } from './app.component';
+import { SliderSelectorComponent } from './slider-selector.component';
 
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+describe('SliderSelectorComponent', () => {
+  let component: SliderSelectorComponent;
+  let fixture: ComponentFixture<SliderSelectorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent]
+      imports: [SliderSelectorComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(SliderSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
