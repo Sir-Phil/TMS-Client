@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tabler-icon-renderer',
-  standalone: true,
-  imports: [],
-  templateUrl: './tabler-icon-renderer.component.html',
-  styleUrl: './tabler-icon-renderer.component.css'
+  template: `<ng-container *ngIf="selector"><i-tabler [name]="selector"></i-tabler></ng-container>`
+  
 })
 export class TablerIconRendererComponent {
 
+  @Input() selector: string | undefined
 }

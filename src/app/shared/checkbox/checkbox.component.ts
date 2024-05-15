@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-checkbox',
-  standalone: true,
-  imports: [],
   templateUrl: './checkbox.component.html',
-  styleUrl: './checkbox.component.css'
+  styleUrls: ['./checkbox.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CheckboxComponent {
+  @Input() checked: boolean = false;
+  @Output() checkboxChangedEvent = new EventEmitter()
 
+
+  handleCheckBoxChangeRequest(){
+    this.checkboxChangedEvent.emit();
+  }
 }
