@@ -16,19 +16,20 @@ import * as icons from 'angular-tabler-icons/icons';
 import { FormInputControlComponent } from './form-input-control/form-input-control.component';
 
 
+const components = [
+  CheckboxComponent,
+  TablerIconRendererComponent,
+  ButtonLoaderComponent,
+  LoaderComponent,
+  CreatorHeaderComponent,
+  SnackbarComponent,
+  SliderSelectorComponent,
+  MenuSelectorComponent,
+  FormInputControlComponent
+]
 
 @NgModule({
-  declarations: [
-    CheckboxComponent,
-    TablerIconRendererComponent,
-    ButtonLoaderComponent,
-    LoaderComponent,
-    CreatorHeaderComponent,
-    SnackbarComponent,
-    SliderSelectorComponent,
-    MenuSelectorComponent,
-    FormInputControlComponent
-  ],
+  declarations: components,
   imports: [
     CommonModule,
     MatMenuModule,
@@ -36,6 +37,8 @@ import { FormInputControlComponent } from './form-input-control/form-input-contr
     ReactiveFormsModule,
     TablerIconsModule.pick(icons)
     
-  ]
+  ],
+
+  exports: components
 })
 export class SharedModule { }

@@ -18,7 +18,7 @@ import { UntypedFormControl } from '@angular/forms';
 export class FormInputControlComponent implements OnInit {
     @Input() title!: string;
     @Input() label!: string;
-    @Input() required!: string;
+    @Input() required!: boolean;
     @Input() isTextArea!: boolean;
     @Input() description!: string;
     @Input() minCharacter!: number;

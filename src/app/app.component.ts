@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-app',
-  standalone: true,
-  imports: [],
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
+  ngOnInit(): void {
+    
+  }
 }

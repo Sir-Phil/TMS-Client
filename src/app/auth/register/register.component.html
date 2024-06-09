@@ -1,0 +1,61 @@
+<div class="auth-form-wrapper">
+    <div class="authentication-header">
+        <div class="auth-title margin-bottom-10" > Hi 👋, Welcome to HR Task </div>\
+        <div class="auth-description">Create Your Your HR Task Account</div>
+    </div>
+
+    <form autocomplete="off"
+    class="authentication-form-wrapper"
+    >
+    <div class="form-control-field">
+        <app-form-input-control
+        type="text"
+        label="Name"
+        [required]="true"
+        [control]="nameFormControl"
+        placeholder="Form example -John Doe"
+        [minCharacter]="1"
+        [maxCharacter]="5"
+        >   
+        </app-form-input-control>
+    </div>
+    
+    <div class="form-control-field">
+        <app-form-input-control
+        type="email"
+        label="Email"
+        [required]="true"
+        [minCharacter]="1"
+        [control]="emailFromControl"
+        placeholder="For example - Johndoe@gmail.com"
+        ></app-form-input-control>
+    </div>
+
+    <div class="form-control-field">
+        <app-form-input-control
+        type="password"
+        label="Password"
+        [required]="true"
+        [control]="passwordFormControl"
+        [minCharacter]="4"
+        [maxCharacter]="5"
+        placeholder="Enter your account password"
+        ></app-form-input-control>
+    </div>
+
+    <div class="authentication-button-wrapper" [ngClass]="{'disabled-content': hasRegistrationEvent}">
+        <button type="button" class="button button-primary" (click)="onRegisterUser()" >
+            <span>{{ '' ? 'Please wait' : 'Create Account'}} </span>
+            <app-button-loader
+            class="animate__animated animate__fadeIn"
+            *ngIf="hasRegistrationEvent"
+            ></app-button-loader>
+        </button>
+    </div>
+    </form>
+
+    <div class="authentication-footer">
+        <span>Have an account already?</span>
+        <a routerLink="/">Login</a>
+    </div>
+</div>

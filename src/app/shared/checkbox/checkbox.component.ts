@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angu
 @Component({
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.css'],
+  styleUrls: ['./checkbox.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class CheckboxComponent {
