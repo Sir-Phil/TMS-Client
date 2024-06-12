@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { SnackbarService } from '../../services/snackbar.service';
 import { SnackbarTypes } from '../../shared/types';
+import { PASSWORD_MAX_CHARACTERS, PASSWORD_MIN_CHARACTERS, USER_NAME_LIMIT } from '../../core/constants/user';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +11,12 @@ import { SnackbarTypes } from '../../shared/types';
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+
+  readonly USER_NAME_LIMIT = USER_NAME_LIMIT;
+
+  readonly PASSWORD_MAX_CHARACTERS = PASSWORD_MAX_CHARACTERS;
+  readonly PASSWORD_MIN_CHARACTERS = PASSWORD_MIN_CHARACTERS;
+
   emailFromControl: UntypedFormControl = new UntypedFormControl('',
   [
     Validators.email,
@@ -32,11 +40,12 @@ export class RegisterComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _snackbar: SnackbarService
+    private _snackbar: SnackbarService,
+    private _authService: AuthService
   ){}
 
   onRegisterUser(){
-    if(''){
+    if(this.hasRegistrationEvent){
       return this._snackbar.showSnackBarNotification(
         `Another account registration is in progress. Please wait for it to complete`,
         SnackbarTypes.INFO,
@@ -63,7 +72,7 @@ export class RegisterComponent {
 
         return this._snackbar.showSnackBarNotification(
           `Please provide your full name to complete your account registration.
-          Your full name can have between 1 and ${} and ${} characters.`,
+          Your full name can have between 1 and ${USER_NAME_LIMIT} characters.`,
           SnackbarTypes.INFO,
         );
     }
@@ -72,7 +81,7 @@ export class RegisterComponent {
     if (this.passwordFormControl.invalid){
       return this._snackbar.showSnackBarNotification(
         `Please provide a valid password to complete your account registration.
-        Your password can have between ${} and ${} characters. `,
+        Your password can have between ${PASSWORD_MIN_CHARACTERS} and ${PASSWORD_MAX_CHARACTERS} characters. `,
         SnackbarTypes.INFO,
       );
     }
@@ -83,7 +92,7 @@ export class RegisterComponent {
   }
 
   get hasRegistrationEvent(){
-    return;
+    return this._authService;
   }
 
 }

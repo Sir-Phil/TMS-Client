@@ -20,4 +20,11 @@ export class SnackbarService {
             data,
         });
     }
+
+    // showSnackBarNotification(message: string, type: SnackbarTypes) {
+    //     this.snackBar.open(message, 'Close', {
+    //       duration: 3000,
+    //       panelClass: type
+    //     });
+    //   }
 }
